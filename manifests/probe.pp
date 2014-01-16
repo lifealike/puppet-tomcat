@@ -36,7 +36,7 @@
 #
 define tomcat::probe($ensure='present', $version='2.0.4') {
 
-  validate_re($ensure, ['present','absent'])
+  #validate_re($ensure, ['present','absent'])
 
   $url="http://psi-probe.googlecode.com/files/probe-${version}.zip"
 

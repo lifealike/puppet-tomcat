@@ -63,7 +63,7 @@ define tomcat::executor(
   $min_spare_threads = 25,
   $max_idle_time     = 60000,
   $manage            = false,
-  $instance_basedir  = false,
+  $instance_basedir  = false
 ) {
 
   $_basedir = $instance_basedir? {
@@ -79,14 +79,14 @@ define tomcat::executor(
   }
 
   validate_string($instance)
-  validate_re($ensure, ['present', 'absent'])
+  #validate_re($ensure, ['present', 'absent'])
   validate_string($owner)
   validate_string($group)
-  validate_bool($daemon)
+  #validate_bool($daemon)
   validate_re($max_threads, '^[0-9]+$')
   validate_re($min_spare_threads, '^[0-9]+$')
   validate_re($max_idle_time, '^[0-9]+$')
-  validate_bool($manage)
+  #validate_bool($manage)
 
 
   file {"${_basedir}/${instance}/conf/executor-${name}.xml":

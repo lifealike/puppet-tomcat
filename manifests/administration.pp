@@ -13,7 +13,7 @@
 # Warning: will overwrite /etc/sudoers !
 #
 class tomcat::administration (
-  $sudo_user = $sudo_tomcat_admin_user,
+  $sudo_user = $sudo_tomcat_admin_user
 ) {
 
   $sudo_group = '%tomcat-admin'

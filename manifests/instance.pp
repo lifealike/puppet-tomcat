@@ -115,18 +115,18 @@ define tomcat::instance(
   $selrole            = 'object_r',
   $seltype            = 'initrc_exec_t',
   $instance_basedir   = false,
-  $tomcat_version     = false,
+  $tomcat_version     = false
 ) {
 
   Class['tomcat::install'] -> Tomcat::Instance[$title]
 
-  validate_re($ensure, [
-    'present',
-    'running',
-    'stopped',
-    'installed',
-    'absent'
-    ])
+  #validate_re($ensure, [
+  #  'present',
+  #  'running',
+  #  'stopped',
+  #  'installed',
+  #  'absent'
+  #  ])
   validate_string($owner)
   validate_string($group)
   validate_re($server_port, '^[0-9]+$')
@@ -135,7 +135,7 @@ define tomcat::instance(
   validate_array($setenv)
   validate_array($connector)
   validate_array($executor)
-  validate_bool($manage)
+  #validate_bool($manage)
 
   $_basedir = $instance_basedir? {
     false   => $tomcat::instance_basedir,

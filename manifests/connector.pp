@@ -61,18 +61,18 @@ define tomcat::connector(
   $executor           = false,
   $options            = [],
   $manage             = false,
-  $instance_basedir   = false,
+  $instance_basedir   = false
 ) {
 
   validate_string($instance)
   validate_re($port, '^[0-9]+$')
-  validate_re($ensure, ['present', 'absent'])
+  #validate_re($ensure, ['present', 'absent'])
   validate_string($owner)
   validate_string($group)
   validate_re($connection_timeout, '^[0-9]+$')
   validate_re($redirect_port, '^[0-9]+$')
   validate_array($options)
-  validate_bool($manage)
+  #validate_bool($manage)
 
   $_basedir = $instance_basedir? {
     false   => $tomcat::instance_basedir,
