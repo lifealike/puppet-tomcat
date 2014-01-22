@@ -8,6 +8,9 @@ class tomcat::install {
     package {"tomcat${tomcat::version}":
       ensure => present,
     } ->
+    file { '/usr/share/tomcat6/':
+      ensure => directory,
+    } ->
     class {'::tomcat::juli': } ->
     class {'::tomcat::logging': }
 
