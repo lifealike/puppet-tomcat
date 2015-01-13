@@ -4,9 +4,14 @@
 #
 class tomcat::install {
 
+  package {'openjdk-7-jdk':
+    ensure => present,
+  }
+
   if !$tomcat::sources {
     package {"tomcat${tomcat::version}":
       ensure => present,
+      require => Package['openjdk-7-jdk'],
     } ->
     file { '/usr/share/tomcat6/':
       ensure => directory,
